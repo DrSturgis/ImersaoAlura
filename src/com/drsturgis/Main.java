@@ -8,6 +8,8 @@ import com.drsturgis.service.Top250Filmes;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +25,7 @@ public class Main {
         JsonParser jsonParser = new JsonParser();
         List<Map<String, String>> listaDeFilmes = jsonParser.parse(body);
         System.out.println(listaDeFilmes.size());
-        //System.out.println(listaDeFilmes.get(0));
+
 
         //Exibir os dados
         for (Map<String, String> filme: listaDeFilmes) {

@@ -9,6 +9,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 
 public class GeradorFigurinhas {
 
@@ -25,6 +28,7 @@ public class GeradorFigurinhas {
         int largura = original.getWidth();
         int altura = original.getHeight();
         int novaAltura = altura + 200;
+        //new File("")
         BufferedImage novaImagem = new BufferedImage(largura, novaAltura, BufferedImage.TRANSLUCENT);
         Graphics2D graphics = (Graphics2D) novaImagem.getGraphics();
         graphics.drawImage(original, 0, 0, null);
@@ -55,7 +59,8 @@ public class GeradorFigurinhas {
         graphics.draw(outline);
         graphics.setClip(outline);
 
-        ImageIO.write(novaImagem, "png", new File("C:\\Users\\Matheu\\Desktop\\DevProjects\\alura-stickers\\src\\com\\drsturgis\\images\\"+ nomeArquivoSaida +".png" ));
+       //ImageIO.write(novaImagem, "png", new File("C:\\Users\\Matheu\\Desktop\\DevProjects\\alura-stickers\\src\\com\\drsturgis\\images\\"+ nomeArquivoSaida +".png" ));
+        ImageIO.write(novaImagem, "png", new File("src\\com\\drsturgis\\images\\"+ nomeArquivoSaida +".png" ));
 
     }
 
