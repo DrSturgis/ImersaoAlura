@@ -1,10 +1,13 @@
 package com.drsturgis;
 
 import com.drsturgis.entity.Filme;
+import com.drsturgis.service.GeradorFigurinhas;
 import com.drsturgis.service.JsonParser;
 import com.drsturgis.service.Top250Filmes;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
@@ -24,8 +27,14 @@ public class Main {
 
         //Exibir os dados
         for (Map<String, String> filme: listaDeFilmes) {
+            InputStream inputStream = new URL(filme.get("image")).openStream();
+
+            GeradorFigurinhas geradorFigurinhas = new GeradorFigurinhas();
+            geradorFigurinhas.criar(inputStream, filme.get("title"));
+
             Filme f = new Filme(filme.get("title"), filme.get("image"),filme.get("imDbRating"), Integer.parseInt(filme.get("year").toString()));
-            System.out.println(f.toString());
+
+            System.out.println(f);
 
         }
 
